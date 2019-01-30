@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/echarts.min.js"></script>
+		<script src="../js/china.js"></script>
+	</head>
+	<body>
+		<div id="mapContainer" style="width: 100%; height: 720px;">
+		</div>
+	</body>
+	<script>
+		 //设置各省的值，为了区分颜色
+    var data = [
+        {name: "北京", value: 100},
+        {name: "天津", value: 42},
+        {name: "河北", value: 102},
+        {name: "山西", value: 81},
+        {name: "内蒙古", value: 47},
+        {name: "辽宁", value: 67},
+        {name: "吉林", value: 82},
+        {name: "黑龙江", value: 66},
+        {name: "上海", value: 24},
+        {name: "江苏", value: 92},
+        {name: "浙江", value: 100},
+        {name: "安徽", value: 109},
+        {name: "福建", value: 100},
+        {name: "江西", value: 91},
+        {name: "山东", value: 100},
+        {name: "河南", value: 100},
+        {name: "湖北", value: 100},
+        {name: "湖南", value: 100},
+        {name: "重庆", value: 91},
+        {name: "四川", value: 100},
+        {name: "贵州", value: 62},
+        {name: "云南", value: 83},
+        {name: "西藏", value: 30},
+        {name: "陕西", value: 80},
+        {name: "甘肃", value: 56},
+        {name: "青海", value: 10},
+        {name: "宁夏", value: 18},
+        {name: "新疆", value: 60},
+        {name: "广东", value: 100},
+        {name: "广西", value: 59},
+        {name: "海南", value: 14},
+        {name: "台湾", value: 14},
+    ];
+	drawMap(data)
+    function drawMap(mapData) {
+        var myChart = echarts.init(document.getElementById('mapContainer'));
+        var mapName = 'china';
+        var option = {
+            title: {
+                text: "海门人才分布",
+                x: 'center',
+                textStyle: {
+                    color: '#ffffff',
+                    fontWeight: 200,
+                    fontSize: 18
+                }
+            },
+            visualMap: {
+                show: false,
+                min: 0,
+                max: 150,
+                left: 'left',
+                top: 'bottom',
+                text: ['高', '低'], // 文本，默认为数值文本
+                calculable: true,
+                seriesIndex: [1],
+                inRange: {
+                    color: ['#f9f9f9', '#2f71ff']
+                }
+            },
+            geo: {
+                show: true,
+                map: mapName,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                roam: true,
+                zoom: 1.3,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#f9f9f9',
+                        borderColor: '#fff',
+                    },
+                    emphasis: {
+                        areaColor: '#7ba4fd',
+                    }
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [/* {
+                name: '散点',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                hoverAnimation: 'false',
+                legendHoverLink: 'false',
+                rippleEffect: {
+                    period: 4,
+                    brushType: 'stroke',
+                    scale: 10
+                },
+
+                data: mapData,
+                symbolSize: function (val) {
+                    //按最大最小人数比例计算点大小（圈最大20最小6）
+                    return Math.ceil(14 / (maxVal - minVal) * (val[2] - minVal) + 6);
+                },
+                tooltip: {
+                    position: 'right',
+                    formatter: function (val) {
+                        return "机构：" + val.data.name + "<br/>" + "人数：" + val.data.value[2];
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#73e5eb'
+                    }
+                }
+            }, */{
+                type: 'map',
+                map: mapName,
+                geoIndex: 0,
+                aspectScale: 0.75, //长宽比
+                showLegendSymbol: false, // 存在legend时显示
+                label: {
+                    normal: {
+                        show: true
+                    },
+                    emphasis: {
+                        show: false,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return "";
+                    },
+                    backgroundColor: 'rgba(0,0,0,0)'
+                },
+                roam: true,
+                animation: false,
+                data: data
+            }]
+        };
+        myChart.setOption(option);
+    }
+	</script>
+</html>
