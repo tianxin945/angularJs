@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/echarts.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="main" style="width: 600px;height:400px;"></div>
+	</body>
+	<script>
+		var app = echarts.init(document.getElementById('main'));
+		var data = [{
+			value: 45,
+			name: 'CARD'
+		}, {
+			value: 25,
+			name: 'SSD'
+		}, {
+			value: 10,
+			name: 'U盘'
+		}, {
+			value: 10,
+			name: '嵌入式'
+		}, {
+			value: 10,
+			name: 'FLASH'
+		}];
+		var option = {
+			title: {
+				text: '对端公司分类',
+				x: 'center',
+				backgroundColor: '#3398DB',
+				textStyle: {
+					fontSize: 18, //字体大小
+					color: '#ffffff' //字体颜色
+				},
+
+			},
+			/* tooltip: {
+				trigger: 'item',
+				formatter: "{a} <br/>{b} : {c} ({d}%)"
+			}, */
+			series: [{
+				name: '对端公司分类情况',
+				type: 'pie',
+				radius: '68%',
+				center: ['50%', '50%'],
+				clockwise: true, //
+				/* label: { //饼图图形上的文本标签
+					normal: {
+						show: true,
+						position: 'inner', //标签的位置
+						textStyle: {
+							fontWeight: 300,
+							fontSize: 12 //文字的字体大小
+						},
+						formatter: "{d}%\n{b}"
+
+
+					}
+				},	 */			
+				itemStyle: {
+					normal: {
+	                    label:{ 
+                            show: true, 
+//	                            position:'inside',
+                            formatter: '{b} : {c} ({d}%)' 
+                        }
+	                },
+                    labelLine :{show:true},
+					emphasis: {
+						borderWidth: 0,
+						shadowBlur: 10,
+						shadowOffsetX: 0,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					}
+				},
+				data: data
+			}],
+			color: [
+				'#00acee',
+				'#52cdd5',
+				'#79d9f1',
+				'#a7e7ff',
+				'#c8efff'
+			],
+			backgroundColor: '#fff'
+		};
+		app.setOption(option);
+	</script>
+</html>

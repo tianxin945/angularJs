@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>五分钟上手之散点图</title>
+		<!-- 引入 echarts.js -->
+		<script src="../js/echarts2.min.js"></script>
+	</head>
+
+	<body>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div style="height: 400px;width: 600px;" id="Scatter"></div>
+		<script type="text/javascript">
+			var MyScatter = echarts.init(document.getElementById('Scatter'));
+
+			var data = [
+				["11月25日", "2018-2-2 16:14:03"],
+				["11月25日", "2018-2-2 16:10:35"],
+				["11月25日", "2018-2-2 16:02:43"],
+				["11月26日", "2018-2-2 12:01:23"]
+			];
+
+			var option2 = {
+				title: {
+					text: '交易时间规律',
+					x: 'center',
+					backgroundColor: '#3398DB',
+					textStyle: {
+						fontSize: 18, //字体大小
+						color: '#ffffff' //字体颜色
+					},
+
+				},
+				xAxis: {
+					type: 'category',
+					"axisLine": { //轴
+						"show": false,
+						"onZero": false
+
+					},
+					"axisTick": { //刻度线
+						"show": false
+					},
+					scale: true
+
+				},
+				yAxis: {
+					type: 'time',
+					axisLabel: {
+						formatter: function(value) {
+							return echarts.format.formatTime('hh:mm', new Date(value));
+						}
+					},
+					splitLine: { //网格线
+						show: false
+					},
+					"axisLine": { //轴
+						"show": false
+
+					},
+					"axisTick": { //刻度线
+						"show": false
+					},
+					scale: true
+				},
+				series: [{
+					data: data,
+					type: 'scatter',
+					symbolSize: 5
+				}]
+			};
+
+			MyScatter.setOption(option2);
+		</script>
+	</body>
+
+</html>
