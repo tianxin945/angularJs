@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+        <title></title>
+
+
+    <body>
+        <br />
+        <div ng-app='myApp' ng-controller='myCtrl'>
+            <div class="container">
+                <div class="row">
+                    <div class='col-md-10'>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" ng-model='masterChecked' ng-click='checkMaster()' />
+                                    </th>
+                                    <th>id</th>
+                                    <td>name</td>
+                                    <td>age</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in personList">
+                                    <td>
+                                        <input type="checkbox" ng-checked='row.checked' ng-click='checkChild(row)' />
+                                    </td>
+                                    <td>{{row.id}}</td>
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.age}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var myApp = angular.module('myApp', []);
+            myApp.controller('myCtrl', function($scope) {
+                //初始化表格数据
+                $scope.personList = [{
+                    checked: false,
+                    id: 1,
+                    name: '赵云',
+                    age: 50
+                }, {
+                    checked: false,
+                    id: 2,
+                    name: '曹操',
+                    age: 60
+                }, {
+                    checked: false,
+                    id: 3,
+                    name: '大司马',
+                    age: 50
+                }];
+                //主复选框选中事件
+                $scope.checkMaster=function(){
+                    if($scope.masterChecked==true){
+                        angular.forEach($scope.personList,function(row,index){
+                            row.checked=true;
+                        } );
+                    }else{
+                        angular.forEach($scope.personList,function(row,index){
+                            row.checked=false;
+                        } );
+                    }
+                }
+                //子复选框选中事件
+                $scope.checkChild=function(row){
+                    //根据选中状态，调正row.checked值
+                    (row.checked==false)?row.checked=true:row.checked=false;
+                    //若取消选中，则取消主复选框选中
+                    if(row.checked==false){
+                        $scope.masterChecked=false;
+                    }else{
+                        //若选中，判断主复选框是否需要选中
+                        var temp=true;
+                        angular.forEach($scope.personList,function(row,index){
+                            //若子复选框有一个未选中，则主复选框不必选中
+                            if(row.checked==false){
+                                temp=false;
+                            }
+                        });
+                        //若子复选框全部选中，则选中主复选框
+                        $scope.masterChecked=temp;
+                    }
+                }
+            });
+                
+        </script>
+    </body>
+
+</html>

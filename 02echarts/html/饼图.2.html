@@ -10,22 +10,7 @@
 	</body>
 	<script>
 		var app = echarts.init(document.getElementById('main'));
-		var data = [{
-			value: 45,
-			name: 'CARD'
-		}, {
-			value: 25,
-			name: 'SSD'
-		}, {
-			value: 10,
-			name: 'U盘'
-		}, {
-			value: 10,
-			name: '嵌入式'
-		}, {
-			value: 10,
-			name: 'FLASH'
-		}];
+		var data =[{"name":"进出口","value":1},{"name":"商贸","value":1},{"name":"贸易","value":1},{"name":"实业","value":0}];
 		var option = {
 			title: {
 				text: '对端公司分类',
@@ -38,37 +23,25 @@
 
 			},
 			/* tooltip: {
-				trigger: 'item',
-				formatter: "{a} <br/>{b} : {c} ({d}%)"
+			    trigger: 'item',
+			    formatter: "{a} <br/>{b} : {c} ({d}%)"
 			}, */
 			series: [{
 				name: '对端公司分类情况',
 				type: 'pie',
 				radius: '80%',
 				center: ['50%', '60%'],
-				clockwise: true, //
-				/* label: { //饼图图形上的文本标签
-					normal: {
-						show: true,
-						position: 'inner', //标签的位置
-						textStyle: {
-							fontWeight: 300,
-							fontSize: 12 //文字的字体大小
-						},
-						formatter: "{d}%\n{b}"
-
-
-					}
-				},	 */			
+				clockwise: true,
 				itemStyle: {
 					normal: {
-	                    label:{ 
-                            show: true, 
-//	                            position:'inside',
-                            formatter: '{b} : {c} ({d}%)' 
-                        }
-	                },
-                    labelLine :{show:true},
+						label: {
+							show: true,
+							formatter: '{b} : {c} ({d}%)'
+						}
+					},
+					labelLine: {
+						show: true
+					},
 					emphasis: {
 						borderWidth: 0,
 						shadowBlur: 10,
