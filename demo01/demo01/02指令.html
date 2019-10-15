@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
-		<title></title>
-	</head>
-	<body>
-		<div ng-app="myapp" ng-controller="mycon">
-			<ul>
-				<li ng-repeat="x in names">
-					{{x.name + ',' + x.age}}
-				</li>
-			</ul>
-		</div>
-	</body>
-	<script>
-		angular.module('myapp',[]).controller('mycon', function($scope) {
-			$scope.names = [{name:'tianxin1',age:'18'},
-							{name:'tinainx2',age:'39'}
-						   ];
-		});
-	</script>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="mycon">
+    <ul>
+        <li ng-repeat="x in names">
+            {{x.name + ',' + x.age}}
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    angular.module('myapp', []).controller('mycon', function ($scope) {
+        $scope.names = [{name: 'tianxin1', age: '18'},
+            {name: 'tinainx2', age: '39'}
+        ];
+    });
+</script>
 </html>

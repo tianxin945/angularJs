@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb"></script>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb"></script>
-		<link rel="stylesheet" href="../css/gaode.css" type="text/css">
-		</link>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	</head>
-	<body>
-		<div id="container"></div>
-	</body>
-	<script>
-		var map = new AMap.Map('container');
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript"
+            src="https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb"></script>
+    <script type="text/javascript"
+            src="https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb"></script>
+    <link rel="stylesheet" href="../css/gaode.css" type="text/css">
+    </link>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+<div id="container"></div>
+</body>
+<script>
+    var map = new AMap.Map('container');
 
-		var map = new AMap.Map('container', {
-			zoom: 11, //级别
-			center: [116.397428, 39.90923], //中心点坐标
-			viewMode: '3D' //使用3D视图
-		});
-		/* window.onLoad = function() {
-			var map = new AMap.Map('container');
-		}
-		var url = 'https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb&callback=onLoad';
-		var jsapi = doc.createElement('script');
-		jsapi.charset = 'utf-8';
-		jsapi.src = url;
-		document.head.appendChild(jsapi); */
-	</script>
+    var map = new AMap.Map('container', {
+        zoom: 11, //级别
+        center: [116.397428, 39.90923], //中心点坐标
+        viewMode: '3D' //使用3D视图
+    });
+    /* window.onLoad = function() {
+        var map = new AMap.Map('container');
+    }
+    var url = 'https://webapi.amap.com/maps?v=1.4.12&key=d23601704520ab6a0a09b84a08b0dbeb&callback=onLoad';
+    var jsapi = doc.createElement('script');
+    jsapi.charset = 'utf-8';
+    jsapi.src = url;
+    document.head.appendChild(jsapi); */
+</script>
 
 </html>

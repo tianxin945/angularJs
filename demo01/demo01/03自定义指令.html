@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
-		<title></title>
-	</head>
-	<body ng-app="03">
-		<!-- directive : runob-directive --><runoob-directive></runoob-directive>
-	</body>
-	<script>
-		angular.module('03',[]).directive("runoobDirective",function(){
-			return {
-				/* restrict : "EA", */
-				template : "自定义指令"
-			};
-		});
-	</script>
-	
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title></title>
+</head>
+<body ng-app="03">
+<!-- directive : runob-directive -->
+<runoob-directive></runoob-directive>
+</body>
+<script>
+    angular.module('03', []).directive("runoobDirective", function () {
+        return {
+            /* restrict : "EA", */
+            template: "自定义指令"
+        };
+    });
+</script>
+
 </html>

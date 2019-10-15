@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<script src="../js/echarts.js"></script>
-		<title></title>
-	</head>
-	<body>
-		<div id="main" style="width: 600px;height:400px;"></div>
-	</body>
-	<script>
-		var app = echarts.init(document.getElementById('main'));
-		var data =[{"name":"进出口","value":1},{"name":"商贸","value":1},{"name":"贸易","value":1},{"name":"实业","value":0}];
-		var option = {
-			title: {
-				text: '对端公司分类',
-				x: 'center',
-				backgroundColor: '#3398DB',
-				textStyle: {
-					fontSize: 18, //字体大小
-					color: '#ffffff' //字体颜色
-				},
+<head>
+    <meta charset="utf-8">
+    <script src="../js/echarts.js"></script>
+    <title></title>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+</body>
+<script>
+    var app = echarts.init(document.getElementById('main'));
+    var data = [{"name": "进出口", "value": 1}, {"name": "商贸", "value": 1}, {"name": "贸易", "value": 1}, {
+        "name": "实业",
+        "value": 0
+    }];
+    var option = {
+        title: {
+            text: '对端公司分类',
+            x: 'center',
+            backgroundColor: '#3398DB',
+            textStyle: {
+                fontSize: 18, //字体大小
+                color: '#ffffff' //字体颜色
+            },
 
-			},
-			/* tooltip: {
-			    trigger: 'item',
-			    formatter: "{a} <br/>{b} : {c} ({d}%)"
-			}, */
-			series: [{
-				name: '对端公司分类情况',
-				type: 'pie',
-				radius: '80%',
-				center: ['50%', '60%'],
-				clockwise: true,
-				itemStyle: {
-					normal: {
-						label: {
-							show: true,
-							formatter: '{b} : {c} ({d}%)'
-						}
-					},
-					labelLine: {
-						show: true
-					},
-					emphasis: {
-						borderWidth: 0,
-						shadowBlur: 10,
-						shadowOffsetX: 0,
-						shadowColor: 'rgba(0, 0, 0, 0.5)'
-					}
-				},
-				data: data
-			}],
-			color: [
-				'#00acee',
-				'#52cdd5',
-				'#79d9f1',
-				'#a7e7ff',
-				'#c8efff'
-			],
-			backgroundColor: '#fff'
-		};
-		app.setOption(option);
-	</script>
+        },
+        /* tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        }, */
+        series: [{
+            name: '对端公司分类情况',
+            type: 'pie',
+            radius: '80%',
+            center: ['50%', '60%'],
+            clockwise: true,
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true,
+                        formatter: '{b} : {c} ({d}%)'
+                    }
+                },
+                labelLine: {
+                    show: true
+                },
+                emphasis: {
+                    borderWidth: 0,
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            },
+            data: data
+        }],
+        color: [
+            '#00acee',
+            '#52cdd5',
+            '#79d9f1',
+            '#a7e7ff',
+            '#c8efff'
+        ],
+        backgroundColor: '#fff'
+    };
+    app.setOption(option);
+</script>
 </html>

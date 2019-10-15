@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="../js/echarts.min.js"></script>
-		<script src="../js/china.js"></script>
-	</head>
-	<body>
-		<div id="mapContainer" style="width: 100%; height: 720px;">
-		</div>
-	</body>
-	<script>
-		 //设置各省的值，为了区分颜色
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/china.js"></script>
+</head>
+<body>
+<div id="mapContainer" style="width: 100%; height: 720px;">
+</div>
+</body>
+<script>
+    //设置各省的值，为了区分颜色
     var data = [
         {name: "北京", value: 100},
         {name: "天津", value: 42},
@@ -46,7 +46,8 @@
         {name: "海南", value: 14},
         {name: "台湾", value: 14},
     ];
-	drawMap(data)
+    drawMap(data)
+
     function drawMap(mapData) {
         var myChart = echarts.init(document.getElementById('mapContainer'));
         var mapName = 'china';
@@ -154,5 +155,5 @@
         };
         myChart.setOption(option);
     }
-	</script>
+</script>
 </html>

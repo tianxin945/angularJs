@@ -1,104 +1,104 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="../../js/echarts.js"></script>
-	</head>
-	<body>
-		<div id="main" style="width: 600px;height:400px;"></div>
-	</body>
-	<script>
-		/*var xData = []
-                    var yData = []
-                    for(var i =0;i<data2.length;i++){
-                        xData.push(data2[i][0])
-                        yData.push(data2[i][1])
-                    }*/
-		var data2 = [
-			["2016-06-23 00:00:00", "2018-2-2 10:44:05"],
-			["2016-06-24 00:00:00", "2018-2-2 10:27:15"],
-			["2016-06-25 00:00:00", "2018-2-2 10:23:48"],
-			["2016-06-28 00:00:00", "2018-2-2 10:18:06"]
-		]
-		//  2. 交易时间规律
-		var app2 = echarts.init(document.getElementById('main'));
-		var option2 = {
-			title: {
-				text: '交易时间规律',
-				x: 'center',
-				backgroundColor: '# ',
-				textStyle: {
-					fontSize: 18, //字体大小
-					color: '#ffffff' //字体颜色
-				},
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../../js/echarts.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+</body>
+<script>
+    /*var xData = []
+                var yData = []
+                for(var i =0;i<data2.length;i++){
+                    xData.push(data2[i][0])
+                    yData.push(data2[i][1])
+                }*/
+    var data2 = [
+        ["2016-06-23 00:00:00", "2018-2-2 10:44:05"],
+        ["2016-06-24 00:00:00", "2018-2-2 10:27:15"],
+        ["2016-06-25 00:00:00", "2018-2-2 10:23:48"],
+        ["2016-06-28 00:00:00", "2018-2-2 10:18:06"]
+    ]
+    //  2. 交易时间规律
+    var app2 = echarts.init(document.getElementById('main'));
+    var option2 = {
+        title: {
+            text: '交易时间规律',
+            x: 'center',
+            backgroundColor: '# ',
+            textStyle: {
+                fontSize: 18, //字体大小
+                color: '#ffffff' //字体颜色
+            },
 
-			},
-			xAxis: {
-				"axisLine": { //轴
-					"show": false
+        },
+        xAxis: {
+            "axisLine": { //轴
+                "show": false
 
-				},
-				"axisTick": { //刻度线
-					"show": false
-				},
-				scale: true,
-				type: 'time',
-				splitLine: { //网格线
-					show: false
-				},
-				axisLabel: {
-					margin: 20,
-					formatter: function(value) {
-						return echarts.format.formatTime('MM-dd', new Date(value));
-					}
-				},
+            },
+            "axisTick": { //刻度线
+                "show": false
+            },
+            scale: true,
+            type: 'time',
+            splitLine: { //网格线
+                show: false
+            },
+            axisLabel: {
+                margin: 20,
+                formatter: function (value) {
+                    return echarts.format.formatTime('MM-dd', new Date(value));
+                }
+            },
 
-				//data: xData
-			},
-			yAxis: {
-				"axisLine": { //轴
-					"show": false
-				},
-				"axisTick": { //刻度线
-					"show": false
-				},
-				scale: true,
-				type: 'time',
-				axisLabel: {
-					margin: 25,
-					formatter: function(value) {
-						return echarts.format.formatTime('hh:mm', new Date(value));
-					}
-				},
-				splitLine: { //网格线
-					show: false
-				},
+            //data: xData
+        },
+        yAxis: {
+            "axisLine": { //轴
+                "show": false
+            },
+            "axisTick": { //刻度线
+                "show": false
+            },
+            scale: true,
+            type: 'time',
+            axisLabel: {
+                margin: 25,
+                formatter: function (value) {
+                    return echarts.format.formatTime('hh:mm', new Date(value));
+                }
+            },
+            splitLine: { //网格线
+                show: false
+            },
 
-			},
-			series: [{
-				data: data2,
-				symbolSize: function(value) {
-					return Math.round(value[2] / 20);
-				},
-				type: 'scatter',
-				itemStyle: {
-					normal: {
-						shadowBlur: 10,
-						shadowColor: 'rgba(120, 36, 50, 0.5)',
-						shadowOffsetY: 5,
-						color: new echarts.graphic.RadialGradient(0.01, 0.02, 0.03, [{
-							offset: 0,
-							color: 'rgb(251, 118, 123)'
-						}, {
-							offset: 1,
-							color: 'rgb(204, 46, 72)'
-						}])
-					}
-				}
+        },
+        series: [{
+            data: data2,
+            symbolSize: function (value) {
+                return Math.round(value[2] / 20);
+            },
+            type: 'scatter',
+            itemStyle: {
+                normal: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(120, 36, 50, 0.5)',
+                    shadowOffsetY: 5,
+                    color: new echarts.graphic.RadialGradient(0.01, 0.02, 0.03, [{
+                        offset: 0,
+                        color: 'rgb(251, 118, 123)'
+                    }, {
+                        offset: 1,
+                        color: 'rgb(204, 46, 72)'
+                    }])
+                }
+            }
 
-			}]
-		};
-		app2.setOption(option2);
-	</script>
+        }]
+    };
+    app2.setOption(option2);
+</script>
 </html>
